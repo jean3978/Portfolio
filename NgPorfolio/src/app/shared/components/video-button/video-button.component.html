@@ -1,0 +1,9 @@
+<div class="outline"
+     [class.over]="over"
+     (mouseenter)="over = true"
+     (mouseleave)="over = false"
+     (click)="click();$event.stopPropagation()"
+     fxLayout="row"
+     fxLayoutAlign="center center">
+  <mat-icon class="icon">{{icon}}</mat-icon>
+</div>

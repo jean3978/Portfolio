@@ -1,0 +1,8 @@
+.select-input{
+  width: 40px;
+  font-size: medium;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

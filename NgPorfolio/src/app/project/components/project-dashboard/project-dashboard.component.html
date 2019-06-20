@@ -1,0 +1,7 @@
+<div class="projects-container">
+  <div fxLayout="column"
+       fxLayoutAlign="start stretch">
+    <app-project-categorie *ngFor="let categorie of dataService.loadedData.categories"
+                           [categorie]="categorie"></app-project-categorie>
+  </div>
+</div>

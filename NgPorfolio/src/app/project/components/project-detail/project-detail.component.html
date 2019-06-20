@@ -1,0 +1,70 @@
+<div fxLayout="row"
+     class="detail-container">
+     <div [fxFlex.lt-sm]="0"
+          [fxFlex.lt-md]="10"
+          [fxFlex.lt-xl]="20"></div>
+     <div *ngIf="project !== null"
+          fxFlex
+          fxLayout="column"
+          fxLayoutAlign="start start">
+          <h2 class="title">{{ project.kTitle }}</h2>
+          <h4 class="subtitle">{{ project.kSubtitle | translate | async }}</h4>
+          <div class="duration"
+               fxLayout="row"
+               fxLayoutAlign="start center">
+               <mat-icon>timer</mat-icon>
+               <span>{{ project.duration | translate | async }}</span>
+          </div>
+          <div class="description">{{ project.kDescription | translate | async }}</div>
+          <div fxLayout="column"
+               fxLayoutAlign="end center">
+               <app-carousel [project]="project"></app-carousel>
+          </div>
+          <div fxLayout="column">
+               <div class="team-title"
+                    fxLayout="row"
+                    fxLayoutAlign="start center">
+                    <mat-icon class="icon">computer</mat-icon>
+                    <span>{{'detail.technology' | translate | async}}</span>
+               </div>
+               <div fxLayout="row">
+                    <img *ngFor="let tech of techs"
+                         [src]="'assets/images/tech_' + tech + '.png'"
+                         class="tech-logo">
+               </div>
+          </div>
+
+          <div fxLayout="column">
+               <div class="team-title"
+                    fxLayout="row"
+                    fxLayoutAlign="start center">
+                    <mat-icon class="icon">assignment</mat-icon>
+                    <span>{{'detail.task' | translate | async}}</span>
+               </div>
+               <div *ngFor="let task of tasks"
+                    class="credit-member">
+                    {{ task | translate | async }}
+               </div>
+          </div>
+     </div>
+     <div [fxFlex.lt-sm]="0"
+          [fxFlex.lt-md]="10"
+          [fxFlex.lt-xl]="20">
+          <div class="team-title"
+               fxLayout="row"
+               fxLayoutAlign="start center">
+               <mat-icon class="icon">people</mat-icon>
+               <span>{{ 'detail.team' | translate | async }}</span>
+          </div>
+          <div fxLayout="column"
+               *ngFor="let categorie of credits"
+               class="credit-section">
+               <div class="credit-categorie">{{categorie.categorieKey | translate | async}}</div>
+               <div *ngFor="let member of categorie.members"
+                    class="credit-member">
+                    {{ member }}
+               </div>
+          </div>
+     </div>
+
+</div>

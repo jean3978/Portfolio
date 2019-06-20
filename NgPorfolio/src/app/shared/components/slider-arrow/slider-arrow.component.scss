@@ -1,0 +1,22 @@
+.slider-arrow-container {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20,20,20,.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+    &.over {
+        opacity: 1;
+    }
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    filter: invert(100%);
+    transition: width 0.3s, height 0.3s; 
+    &.over {
+        width: 55px;
+        height: 55px;
+    }
+}

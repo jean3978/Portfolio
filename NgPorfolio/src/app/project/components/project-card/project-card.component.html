@@ -1,0 +1,31 @@
+<div class="image-container"
+     (mouseenter)="mouseOver()"
+     (mouseleave)="mouseLeave()"
+     (click)="click()"
+     [class.enlarge]="enlarge"
+     [style.transform]="transformStyle"
+     [class.fade-fast]="(navigationService.openedProject | async) !== project.key && (navigationService.openedProject | async)"
+     #root>
+     <div class="media-container">
+          <video *ngIf="over || showVideo"
+                 class="media"
+                 #videoPlayer>
+               <source [src]="'assets/videos/' + project.srcVideo + '.mp4'"
+                       type="video/mp4">
+          </video>
+          <img [src]="'assets/images/' + project.srcImage + '.png'"
+               alt="image of the project"
+               class="media"
+               [class.over]="over && validVideo" />
+          <img [src]="'assets/images/' + project.srcLogo + '.png'"
+               alt="logo of the project"
+               class="logo" />
+          <div *ngIf="over && validVideo || showVideo"
+               fxLayout="column"
+               class="button-container"
+               [class.inactive]="!over">
+               <app-video-button [icon]="videoService.muted  ? 'volume_off' : 'volume_up'"
+                                 (clicked)="toogleMute()"></app-video-button>
+          </div>
+     </div>
+</div>

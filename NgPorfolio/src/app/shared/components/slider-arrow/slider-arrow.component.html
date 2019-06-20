@@ -1,0 +1,12 @@
+<div class="slider-arrow-container"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+     #left
+     (mouseenter)="over = true"
+     (mouseleave)="over = false"
+     (click)="click()"
+     [class.over]="over">
+  <img [src]="'assets/icons/' + direction + '_arrow.svg'"
+       class="icon"
+       [class.over]="over" />
+</div>

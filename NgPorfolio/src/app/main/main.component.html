@@ -1,0 +1,74 @@
+<mat-toolbar fxLayout="row"
+             class="header">
+  <img src="/assets/images/JR.png"
+       width="64"
+       height="64"
+       class="logo">
+  <!-- <span *ngIf="media.registerQuery('gt-sm') | async">Jean-René Choinière | {{ 'PROGRAMMER' | translate | async}}</span> -->
+  <span>Jean-René Choinière</span>
+  <!-- <button mat-icon-button
+          [matMenuTriggerFor]="menu"
+          *ngIf="media.registerQuery('xs') | async">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item
+            *ngFor="let route of navmenu"
+            (click)="navigate(route.route)">
+      <span>{{ route.title | translate | async }}</span>
+    </button>
+  </mat-menu>
+  <div fxFlex
+       fxLayout="row"
+       fxLayoutAlign="end center">
+    <!-- <span *ngIf="!(media.registerQuery('xs') | async)"
+          class="routes"> -->
+          <span class="routes">
+      <button mat-button
+              *ngFor="let route of navmenu"
+              (click)="navigate(route.route)">{{ route.title | translate | async }}</button>
+    </span>
+    <app-language-picker></app-language-picker>
+  </div>
+</mat-toolbar>
+<div fxLayout="row"
+     class="relative main-container">
+  <div fxFlex
+       [@routeAnimations]="outlet.isActivated && outlet.activatedRoute.routeConfig.path"
+       class="content-container">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>
+<mat-toolbar class="footer"
+             fxLayout="row"
+             fxLayoutAlign="center center"
+             fxLayoutGap="15px">
+  <a href="https://www.twitter.com/jrchoiniere"
+     target="_blank"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+    <fa-icon [icon]="['fab','twitter']"></fa-icon>
+    <span>Twitter</span>
+  </a>
+  <a href="https://www.linkedin.com/in/jrchoiniere"
+     target="_blank"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+    <fa-icon [icon]="['fab','linkedin']"></fa-icon>
+    <span>LinkedIn</span>
+  </a>
+  <a href="https://www.youtube.com/channel/UC4Ru4pH96zo4a8smeIVPidA"
+     target="_blank"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+    <fa-icon [icon]="['fab','youtube']"></fa-icon>
+    <span>YouTube</span>
+  </a>
+  <a href="https://jrs-projects.itch.io/"
+     target="_blank"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+    <fa-icon [icon]="['fab','itch-io']"></fa-icon>
+    <span>Itch.io</span>
+  </a>
+</mat-toolbar>

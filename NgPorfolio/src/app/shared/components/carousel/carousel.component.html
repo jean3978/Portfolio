@@ -1,0 +1,16 @@
+<div *ngIf="images.length > 0"
+     fxLayout="row"
+     class="carousel">
+  <div *ngFor="let item of items; let i = index">
+    <div class="item"
+         [ngClass]="positions[item.positionIndex]"
+         [class.over]="overItemIndex === i"
+         [style.transition.s]="item.transitionDuration"
+         (click)="rotate(item)"
+         (mouseenter)="overItemIndex = i"
+         (mouseleave)="overItemIndex = -1">
+      <img [src]="'assets/images/' + images[item.imageIndex] + '.png'"
+           class="image">
+    </div>
+  </div>
+</div>

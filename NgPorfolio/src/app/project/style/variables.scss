@@ -1,0 +1,5 @@
+$ratio: 9/16;
+$ratioOver: 1.25;
+$width: 400px;
+$height: $ratio * $width;
+$padding: ($ratioOver * $width * $ratio - $ratio * $width) / 2;

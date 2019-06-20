@@ -1,0 +1,28 @@
+<div fxLayout="column">
+  <h2>
+    <div class="categorie-header">
+      {{ categorie.kName | translate | async}}
+    </div>
+  </h2>
+  <div fxLayout="row"
+       #rowDiv
+       class="row-container">
+    <div class="translatable"
+         #translatableDiv
+         fxLayout="row"
+         [ngStyle]="{'transform': 'translate3d(' + translationPercent + '%, 0, 0);'}">
+      <app-project-card *ngFor="let project of projects"
+                        [project]="project"></app-project-card>
+    </div>
+    <div class="left"
+         *ngIf="leftArrowEnabled">
+      <app-slider-arrow direction="left"
+                        (clicked)="move($event)"></app-slider-arrow>
+    </div>
+    <div class="right"
+         *ngIf="rightArrowEnabled">
+      <app-slider-arrow direction="right"
+                        (clicked)="move($event)"></app-slider-arrow>
+    </div>
+  </div>
+</div>

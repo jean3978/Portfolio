@@ -1,0 +1,82 @@
+@import '../../styles-variables';
+
+.full-width {
+    width: 100%;
+}
+
+.main-card{
+    margin: 8px;
+}
+    
+.header{
+    position: fixed;
+    z-index: 2;
+}
+
+.footer{
+    position: fixed;
+    z-index: 2;
+    bottom: 0px;
+    height: 32px;
+}
+
+.subheader{
+    position: fixed;
+    z-index: -2;
+    top: 56px;
+}
+
+.relative{
+    position: relative;
+    top: 70px;
+}
+    
+.main-container{
+    position: relative;
+    top: 70px;
+}
+
+.content-container{
+    max-width: 100%;
+}
+
+.logo{
+    margin-right: 25px;
+}
+
+.routes{
+    margin-right: 30px;
+}
+
+a {    
+    transition: padding 0.5s;
+    display: inline-block;
+    padding: 20px 5px;
+    text-decoration: none;
+    transition: color 0.45s;
+    &:hover {
+        text-decoration: none;
+        color: grey;
+    }
+    fa-icon {
+        font-size: 20px;
+        width: 35px;
+    }
+    span {
+        display: inline-block;
+        width: 75px;
+        padding: 0px 0 0 3px;
+        overflow: hidden;
+        text-align: left;
+        white-space: nowrap;
+        transition: width 0.5s;
+        font-size: medium;
+        display: none;
+        @include lg {
+            display: inline;
+        }
+    }
+}
+
+            
+          

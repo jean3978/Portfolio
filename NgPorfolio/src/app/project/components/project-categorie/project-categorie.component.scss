@@ -1,0 +1,53 @@
+@import '../../style/variables';
+
+.row-container {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+}
+
+.translatable {
+    transition: transform 0.5s;
+}
+
+.navigation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+%arrow {
+    position: absolute;
+    width: 80px;
+    height: $height;
+    top: $padding + 3; // margin of 3 on image-container
+    bottom: $padding;
+}
+
+.left {
+    @extend %arrow;
+    left: 3px;
+}
+.right {
+    @extend %arrow;
+    right: 3px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    filter: invert(100%);
+    transition: width 0.3s, height 0.3s; 
+    &.over {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+.categorie-header{
+    font-size: large;
+    font-weight: normal;
+    color: rgba($color: #000000, $alpha: 0.8);
+}
