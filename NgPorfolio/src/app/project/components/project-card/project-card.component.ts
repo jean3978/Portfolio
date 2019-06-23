@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material';
 import { ProjectDetailComponent } from '../project-detail/project-detail.component';
 import { NavigationService } from '../../../core/services/navigation.service';
 import { Router } from '@angular/router';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project-card',
@@ -41,13 +42,15 @@ export class ProjectCardComponent implements OnInit {
 
   // custom modal
   @ViewChild('root') root: ElementRef;
-  transformStyle: SafeStyle; 
+  @ViewChild('test') test: ElementRef;
+  transformStyle: SafeStyle;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
     public videoService: VideoService,
     private sanitizer: DomSanitizer,
     public navigationService: NavigationService,
+    private projectService: ProjectService,
     private router: Router
     // public media: TdMediaService
   ) {
@@ -143,21 +146,42 @@ export class ProjectCardComponent implements OnInit {
   click() {
     const div: HTMLDivElement = this.root.nativeElement;
 
+    console.log(this.projectService.dashboardElementRef);
+
+    var containerRect: ClientRect = this.projectService.dashboardElementRef.nativeElement.getBoundingClientRect();
     var rect = div.getBoundingClientRect();
 
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
+    const width = Math.min(
+      window.innerWidth,
+      window.outerWidth,
+      containerRect.width
+    );
+
+    const height = Math.min(
+      window.innerHeight,
+      window.outerHeight,
+      containerRect.height
+    );
+
+    const scale = Math.min(
+      width / rect.width,
+      height / rect.height,
+    );
+
+    const centerX = width / 2;
+    const centerY = height / 2;
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
     const tx = centerX - x;
     const ty = centerY - y;
 
-    this.transformStyle = this.sanitizer.bypassSecurityTrustStyle(`translate3d(${tx}px,${ty}px,-5px) scale(5,5)`);
-    this.navigationService.openProject(this.project.key);
+    // this.transformStyle = this.sanitizer.bypassSecurityTrustStyle(`translate3d(${tx}px,${ty}px,-5px) scale(${scale},${scale})`);
+    // this.navigationService.openProject(this.project.key);
 
     this.fadeVolume(0);
-    timer(1000).subscribe(() => this.router.navigateByUrl(`/project/detail/${this.project.key}`))
+    // timer(1000).subscribe(() => this.router.navigateByUrl(`/project/detail/${this.project.key}`))
+    this.router.navigateByUrl(`/project/detail/${this.project.key})`);
   }
 }
 

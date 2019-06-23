@@ -8,6 +8,9 @@
 
 .translatable {
     transition: transform 0.5s;
+    @include layout-bp(lt-lg) {
+        overflow-x: scroll;
+    }
 }
 
 .navigation {
@@ -20,16 +23,20 @@
 
 %arrow {
     position: absolute;
-    width: 80px;
-    height: $height;
-    top: $padding + 3; // margin of 3 on image-container
-    bottom: $padding;
+
+    @include project-card {
+        width: 80px;
+        height: card-height($card-width);
+        top: card-padding($card-width) + 3; // margin of 3 on image-container
+        bottom: card-padding($card-width);
+    }
 }
 
 .left {
     @extend %arrow;
     left: 3px;
 }
+
 .right {
     @extend %arrow;
     right: 3px;
@@ -39,14 +46,15 @@
     width: 50px;
     height: 50px;
     filter: invert(100%);
-    transition: width 0.3s, height 0.3s; 
+    transition: width 0.3s, height 0.3s;
+
     &.over {
         width: 55px;
         height: 55px;
     }
 }
 
-.categorie-header{
+.categorie-header {
     font-size: large;
     font-weight: normal;
     color: rgba($color: #000000, $alpha: 0.8);

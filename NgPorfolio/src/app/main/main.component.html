@@ -1,16 +1,16 @@
 <mat-toolbar fxLayout="row"
              class="header">
-  <img src="/assets/images/JR.png"
+  <img *ngIf="mediaObserver.isActive('gt-sm')"
+       src="/assets/images/JR.png"
        width="64"
        height="64"
        class="logo">
-  <!-- <span *ngIf="media.registerQuery('gt-sm') | async">Jean-René Choinière | {{ 'PROGRAMMER' | translate | async}}</span> -->
-  <span>Jean-René Choinière</span>
-  <!-- <button mat-icon-button
+  <span *ngIf="mediaObserver.isActive('gt-xs')">Jean-René Choinière</span>
+  <button mat-icon-button
           [matMenuTriggerFor]="menu"
-          *ngIf="media.registerQuery('xs') | async">
+          *ngIf="mediaObserver.isActive('lt-sm')">
     <mat-icon>menu</mat-icon>
-  </button> -->
+  </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item
             *ngFor="let route of navmenu"
@@ -21,9 +21,8 @@
   <div fxFlex
        fxLayout="row"
        fxLayoutAlign="end center">
-    <!-- <span *ngIf="!(media.registerQuery('xs') | async)"
-          class="routes"> -->
-          <span class="routes">
+    <span *ngIf="mediaObserver.isActive('gt-xs')"
+          class="routes">
       <button mat-button
               *ngFor="let route of navmenu"
               (click)="navigate(route.route)">{{ route.title | translate | async }}</button>

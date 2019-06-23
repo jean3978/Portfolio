@@ -1,35 +1,35 @@
 @import '../../style/variables';
 
-.project-card{
+.project-card {
     margin: 8px;
 }
 
-.project-card-header{
+.project-card-header {
     background-size: cover;
     border-radius: 0% !important;
 }
 
 .image-container {
     position: relative;
-    cursor: pointer;
-    height:  $width * $ratio;
-    width: $width;
-    padding-top: $padding;
-    padding-bottom:   $padding;
-    transition: height 0.3s, width 0.3s, padding-top 0.3s, padding-bottom 0.3s, transform 1s;
-    margin: 3px;
-    opacity: 1;
-    &.enlarge {
-        height: $ratioOver * $width * $ratio;
-        width: $ratioOver * $width;
-        padding-top: 0;
-        padding-bottom: 0;
-        z-index: 1;
-    }
-    &.fade-fast {
-        transition: opacity 0.3s;
-        transition-timing-function: ease-out;
-        opacity: 0;
+    @include project-card {
+        cursor: pointer;
+        width: $card-width;
+        height: card-height($card-width);
+        padding: card-padding($card-width) 0px card-padding($card-width) 0px;
+        transition: height 0.3s, width 0.3s, padding-top 0.3s, padding-bottom 0.3s, transform 1s;
+        margin: 3px;
+        opacity: 1;
+        &.enlarge {
+            width: $card-ratioOver * $card-width;
+            height: $card-ratioOver * card-height($card-width);
+            padding: 0;
+            z-index: 1;
+        }
+        &.fade-fast {
+            transition: opacity 0.3s;
+            transition-timing-function: ease-out;
+            opacity: 0;
+        }
     }
 }
 
@@ -37,6 +37,7 @@
     position: relative;
     width: 100%;
     height: 100%;
+
     &.fade-fast {
         transition: opacity 0.1s;
         transition-timing-function: ease-out;
@@ -54,6 +55,7 @@
     height: 100%;
     opacity: 1;
     transition: opacity 1s;
+
     &.over {
         opacity: 0;
     }
@@ -77,18 +79,18 @@
     height: 100%;
     opacity: 1;
     transition: opacity 0.4s;
+
     &.inactive {
         opacity: 0;
     }
 }
-
 .modal {
     position: fixed;
     background-color: red;
     opacity: 0.3;
     // z-index: 99999;
-    top: $padding;
+    // top: $padding;
     left: 0;
-    bottom: $padding;
+    // bottom: $padding;
     right: 0;
 }

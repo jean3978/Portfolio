@@ -3,6 +3,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { TdMediaService } from '@covalent/core';
 import { TranslateService } from '../core/services/translate.service';
 import { slideInAnimation } from '../core/animations/animations';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-main',
@@ -32,7 +33,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public mediaObserver: MediaObserver
   ) {
     this._router.navigateByUrl('/project/dashboard');
   }

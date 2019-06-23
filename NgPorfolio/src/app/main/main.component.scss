@@ -1,4 +1,4 @@
-@import '../../styles-variables';
+@import '~@angular/flex-layout/_mq.scss';
 
 .full-width {
     width: 100%;
@@ -72,7 +72,7 @@ a {
         transition: width 0.5s;
         font-size: medium;
         display: none;
-        @include lg {
+        @include layout-bp(lt) {
             display: inline;
         }
     }

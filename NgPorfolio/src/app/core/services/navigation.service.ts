@@ -11,6 +11,8 @@ export class NavigationService {
 
   get openedProject() { return this._openedProject as Observable<string>; }
 
+  test: any;
+
   constructor(
     private _router: Router
   ) {

@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { slideInAnimation } from '../../../core/animations/animations';
 import { DataService } from '../../../core/services/data.service';
+import { NavigationService } from '../../../core/services/navigation.service';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project-dashboard',
@@ -26,18 +28,23 @@ import { DataService } from '../../../core/services/data.service';
     ]),
   ],
 })
-export class ProjectDashboardComponent implements OnInit {
+export class ProjectDashboardComponent implements OnInit, AfterViewInit {
 
-  
+  @ViewChild('dashboard') dashboard: ElementRef;
+
   opened = null;
 
   constructor(
-    public dataService: DataService
-  ) { 
+    public dataService: DataService,
+    public projectService: ProjectService
+  ) {
 
   }
 
   ngOnInit() {
   }
 
+  ngAfterViewInit(): void {
+    this.projectService.dashboardElementRef = this.dashboard;
+  }
 }

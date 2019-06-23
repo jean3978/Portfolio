@@ -1,5 +1,25 @@
-$ratio: 9/16;
-$ratioOver: 1.25;
-$width: 400px;
-$height: $ratio * $width;
-$padding: ($ratioOver * $width * $ratio - $ratio * $width) / 2;
+@import '~@angular/flex-layout/_mq.scss';
+
+$card-width: 400px !default;
+
+$card-ratio: 9/16;
+$card-ratioOver: 1.25;
+
+@function card-height($width) {
+    @return $card-ratio * $width;
+}
+
+@function card-padding($width) {
+    @return ($card-ratioOver * $width * $card-ratio - $card-ratio * $width) / 2;
+}
+
+@mixin project-card {
+    @include layout-bp(lt-md){
+        $card-width: 250px !global;
+        @content;
+    }
+    @include layout-bp(gt-sm) {
+        $card-width: 400px !global;
+        @content;
+    }
+}

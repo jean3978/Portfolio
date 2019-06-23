@@ -1,4 +1,4 @@
-<div *ngIf="images.length > 0"
+<div *ngIf="images.length > 0 && mediasObserver.isActive('gt-md')"
      fxLayout="row"
      class="carousel">
   <div *ngFor="let item of items; let i = index">
@@ -13,4 +13,11 @@
            class="image">
     </div>
   </div>
+</div>
+<div *ngIf="images.length > 0 && !mediasObserver.isActive('gt-md')"
+     fxLayout="row"
+     class="image-row">
+  <img *ngFor="let item of items"
+       [src]="'assets/images/' + images[item.imageIndex] + '.png'"
+       class="image">
 </div>

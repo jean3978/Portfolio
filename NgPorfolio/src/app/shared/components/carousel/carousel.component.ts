@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../../../core/models/data';
+import { MediaObserver } from '@angular/flex-layout';
 
 class CarouselItem {
   positionIndex: number;
@@ -23,7 +24,9 @@ export class CarouselComponent implements OnInit {
   items: CarouselItem[] = [];
   overItemIndex: number = -1;
 
-  constructor() { }
+  constructor(
+    public mediasObserver: MediaObserver
+  ) { }
 
   ngOnInit() {
     for(let i = 1; i <= parseInt(this.project.imageCount); i++) {

@@ -3,6 +3,7 @@ import { Categorie, Project } from '../../../core/models/data';
 import { DataService } from '../../../core/services/data.service';
 import { timer, Subject } from 'rxjs';
 import { takeUntil, take } from 'rxjs/operators';
+import { NavigationService } from '../../../core/services/navigation.service';
 
 @Component({
   selector: 'app-project-categorie',
@@ -13,10 +14,8 @@ export class ProjectCategorieComponent implements OnInit, AfterViewInit {
 
 
   @Input() categorie: Categorie;
-  @ViewChild('rowDiv') rowDivChild: ElementRef;
   @ViewChild('translatableDiv') translatableDivChild: ElementRef;
 
-  private rowDiv: HTMLDivElement;
   private translatableDiv: HTMLDivElement;
   private moveSubject = new Subject();
 
@@ -31,7 +30,8 @@ export class ProjectCategorieComponent implements OnInit, AfterViewInit {
 
   constructor(
     public dataService: DataService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    public navigationService: NavigationService
   ) {
 
   }
@@ -41,7 +41,6 @@ export class ProjectCategorieComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.rowDiv = this.rowDivChild.nativeElement;
     this.translatableDiv = this.translatableDivChild.nativeElement;
     this.evaluateHorizontalScroll();
     this.changeDetectorRef.detectChanges();
@@ -54,7 +53,7 @@ export class ProjectCategorieComponent implements OnInit, AfterViewInit {
 
   evaluateHorizontalScroll() {
     // TODO fix this, won't work with margin and padding (window.innerWidth)
-    this.rightArrowEnabled = this.rowDiv.scrollWidth + this.translationOffset > window.innerWidth;
+    this.rightArrowEnabled = this.translatableDiv.scrollWidth + this.translationOffset > window.innerWidth;
     this.leftArrowEnabled = this.translationOffset < 0;
   }
 
