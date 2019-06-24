@@ -46,6 +46,7 @@ import {
 import { VideoButtonComponent } from './components/video-button/video-button.component';
 import { SliderArrowComponent } from './components/slider-arrow/slider-arrow.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { NgArrayPipesModule, NgStringPipesModule } from 'angular-pipes';
 
 library.add(
   faGithub,
@@ -97,6 +98,8 @@ const SHARED_COMPONENTS: any[] = [
     FormsModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    NgArrayPipesModule,
+    NgStringPipesModule,
     MATERIAL_MODULES,
     // COVALENT_MODULES,
     DEPENDENCIES_MODULES,
@@ -111,6 +114,8 @@ const SHARED_COMPONENTS: any[] = [
     FontAwesomeModule,
     ReactiveFormsModule,
     TranslatePipe,
+    NgArrayPipesModule,
+    NgStringPipesModule,
   ]
 })
 export class SharedModule { }

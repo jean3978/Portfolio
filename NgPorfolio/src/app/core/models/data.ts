@@ -28,6 +28,7 @@ export class Project {
 export class Categorie{
     key: string;
     kName: string;
+    order: string;
 }
 
 export class CreditCategorie {

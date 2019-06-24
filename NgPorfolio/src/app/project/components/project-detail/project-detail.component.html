@@ -1,8 +1,8 @@
 <div fxLayout="row"
      class="detail-container">
-     <!-- <div [fxFlex.lt-sm]="0"
-          [fxFlex.lt-md]="10"
-          [fxFlex.lt-xl]="20"></div> -->
+     <div [fxFlex.lt-sm]="0"
+          [fxFlex.lt-lg]="10"
+          [fxFlex.gt-md]="20"></div>
      <div *ngIf="project !== null"
           fxFlex
           fxLayout="column"
@@ -46,7 +46,11 @@
                     {{ task | translate | async }}
                </div>
           </div>
+          <app-project-credit [projectKey]="project.key"></app-project-credit>
      </div>
+     <div [fxFlex.lt-sm]="0"
+          [fxFlex.lt-lg]="10"
+          [fxFlex.gt-md]="20"></div>
      <!-- <div [fxFlex.lt-sm]="0"
           [fxFlex.lt-md]="10"
           [fxFlex.lt-xl]="20"> -->

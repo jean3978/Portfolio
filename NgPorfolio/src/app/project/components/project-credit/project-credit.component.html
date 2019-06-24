@@ -1,0 +1,15 @@
+<div class="team-title"
+     fxLayout="row"
+     fxLayoutAlign="start center">
+  <mat-icon class="icon">people</mat-icon>
+  <span>{{ 'detail.team' | translate | async }}</span>
+</div>
+<div fxLayout="column"
+     *ngFor="let categorie of credits"
+     class="credit-section">
+  <div class="credit-categorie">{{categorie.categorieKey | translate | async}}</div>
+  <div *ngFor="let member of categorie.members"
+       class="credit-member">
+    {{ member }}
+  </div>
+</div>

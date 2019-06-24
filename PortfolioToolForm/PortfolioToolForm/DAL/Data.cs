@@ -58,6 +58,8 @@ namespace PortfolioToolForm.DAL
 
         [Translate]
         public string KName { get; set; }
+
+        public string Order { get; set; }
     }
 
     public class ProjectTask

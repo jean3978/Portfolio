@@ -6,13 +6,15 @@ import { ProjectRoutingModule } from './project-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectCategorieComponent } from './components/project-categorie/project-categorie.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { ProjectCreditComponent } from './components/project-credit/project-credit.component';
 
 @NgModule({
   declarations: [
     ProjectDashboardComponent,
     ProjectCardComponent,
     ProjectCategorieComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ProjectCreditComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 <div class="projects-container" #dashboard>
   <div fxLayout="column"
        fxLayoutAlign="start stretch">
-    <app-project-categorie *ngFor="let categorie of dataService.loadedData.categories"
+    <app-project-categorie *ngFor="let categorie of dataService.loadedData.categories | orderBy: 'order'"
                            [categorie]="categorie"></app-project-categorie>
   </div>
 </div>

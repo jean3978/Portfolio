@@ -11,7 +11,7 @@
          fxLayout="row"
          [ngStyle]="{'transform': 'translate3d(' + translationPercent + '%, 0, 0);'}"
          [class.clicked]="navigationService.openedProject | async">
-      <app-project-card *ngFor="let project of projects"
+      <app-project-card *ngFor="let project of projects | orderBy: '-date'"
                         [project]="project"></app-project-card>
     </div>
     <!-- <div class="left"
