@@ -90,6 +90,9 @@ export class ProjectCardComponent implements OnInit {
     ).subscribe(v => {
       this.showVideo = this.validVideo;
       this.enlarge = true;
+      if (this.videoService.muted){
+        v[1].muted = true;
+      }
       v[1].play();
       this.fadeVolume(this.maxVolume);
     });
@@ -115,6 +118,8 @@ export class ProjectCardComponent implements OnInit {
   fadeVolume(target: number) {
     if (this.videoService.muted) {
       target = 0;
+    } else {
+      this.videoPlayer.value.muted = false;
     }
 
     const fadeSpeed = 0.01;

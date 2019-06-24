@@ -13,12 +13,12 @@ export class VideoService {
   constructor(
     private cookieService: CookieService
   ) {
-    const saveMuted = this.cookieService.get('muteVideo');
-    this._muted = saveMuted === '1';
+    // const saveMuted = this.cookieService.get('muteVideo');
+    this._muted = true;
   }
 
   toogleMute() {
     this._muted = !this._muted;
-    this.cookieService.set('muteVideo', this._muted ? '1' : '0');
+    // this.cookieService.set('muteVideo', this._muted ? '1' : '0');
   }
 }
