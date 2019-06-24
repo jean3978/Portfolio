@@ -14,7 +14,7 @@
       <app-project-card *ngFor="let project of projects | orderBy: '-date'"
                         [project]="project"></app-project-card>
     </div>
-    <!-- <div class="left"
+    <div class="left"
          *ngIf="leftArrowEnabled">
       <app-slider-arrow direction="left"
                         (clicked)="move($event)"></app-slider-arrow>
@@ -23,6 +23,6 @@
          *ngIf="rightArrowEnabled">
       <app-slider-arrow direction="right"
                         (clicked)="move($event)"></app-slider-arrow>
-    </div> -->
+    </div>
   </div>
 </div>
