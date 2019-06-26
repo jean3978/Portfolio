@@ -4,6 +4,8 @@ export class Data {
     creditCategories: CreditCategorie[];
     credits: Credit[];
     projectTasks: ProjectTask[];
+    skillCategories: SkillCategorie[];
+    skills: Skill[];
 }
 
 export class Project {
@@ -25,7 +27,7 @@ export class Project {
     }
 }
 
-export class Categorie{
+export class Categorie {
     key: string;
     kName: string;
     order: string;
@@ -43,7 +45,22 @@ export class Credit {
 }
 
 export class ProjectTask {
-    ket: string;
+    key: string;
     project: string;
     description: string;
+}
+
+export class Skill {
+    key: string;
+    title: string;
+    description: string;
+    experience: string;
+    logo: string;
+    skillCategorie: string;
+}
+
+export class SkillCategorie {
+    key: string;
+    kName: string;
+    order: string;
 }

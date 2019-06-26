@@ -1,3 +1,18 @@
-<p>
-  skill-dashboard works!
-</p>
+<div fxLayout="column"
+     *ngFor="let categorie of skills"
+     class="skill-section">
+  <div class="skill-categorie">{{categorie.categorieKey | translate | async}}</div>
+  <div fxLayout="row"
+       class="skill-row">
+    <div *ngFor="let skill of categorie.skills"
+         class="skill-item"
+         fxLayout="column"
+         fxLayoutAling="start center">
+      <div class="skill-logo-container">
+        <img [src]="skill.logo"
+             class="skill-logo" />
+      </div>
+      <span class="skill-title">{{ skill.title }}</span>
+    </div>
+  </div>
+</div>

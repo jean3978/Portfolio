@@ -27,6 +27,8 @@ namespace PortfolioToolForm
             AddDataControl<CreditCategorie>();
             AddDataControl<Credit>();
             AddDataControl<ProjectTask>();
+            AddDataControl<SkillCategorie>();
+            AddDataControl<Skill>();
 
             Loader.LoadData();
             

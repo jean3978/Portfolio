@@ -1,0 +1,33 @@
+.skill-logo-container {
+    height: 50px;
+    width: 80px;
+}
+
+.skill-logo {
+    height: 100%;
+    width: auto;
+}
+
+.skill-categorie {
+    font-size: larger;
+    margin: 3px 0px 3px 0px;
+}
+
+.skill-section {
+    padding: 15px;
+}
+
+.skill-item {
+    padding: 30px;
+}
+
+.skill-title {
+    color: rgba($color: #000000, $alpha: 0.8);
+    font-size: small;
+    font-style: italic;
+    padding: 5px;
+}
+
+.skill-row {
+    overflow-x: auto;
+}

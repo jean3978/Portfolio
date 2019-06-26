@@ -19,10 +19,10 @@ const routes: Routes = [
 				path: 'project',
 				loadChildren: () => ProjectModule,
 			},
-			// {
-			// 	path: 'skill',
-			// 	loadChildren: () => SkillModule,
-			// },
+			{
+				path: 'skill',
+				loadChildren: () => SkillModule,
+			},
 		]
 	}
 ];

@@ -24,11 +24,11 @@ export class MainComponent implements OnInit {
       title: 'nav.project',
       route: '/project/dashboard',
     },
-    // {
-    //   icon: 'looks_3',
-    //   title: 'nav.skill',
-    //   route: '/skill/view',
-    // }
+    {
+      icon: 'looks_3',
+      title: 'nav.skill',
+      route: '/skill/view',
+    }
   ];
 
   constructor(

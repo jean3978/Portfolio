@@ -25,6 +25,12 @@ namespace PortfolioToolForm.DAL
 
         [DataType(Is = typeof(ProjectTask))]
         public List<ProjectTask> ProjectTasks { get; set; } = new List<ProjectTask>();
+
+        [DataType(Is = typeof(SkillCategorie))]
+        public List<SkillCategorie> SkillCategories { get; set; } = new List<SkillCategorie>();
+
+        [DataType(Is = typeof(Skill))]
+        public List<Skill> Skills { get; set; } = new List<Skill>();
     }
     
 
@@ -79,6 +85,29 @@ namespace PortfolioToolForm.DAL
 
         [Translate]
         public string KName { get; set; }
+    }
+
+    public class SkillCategorie
+    {
+        public string Key { get; set; }
+
+        [Translate]
+        public string KName { get; set; }
+
+        public string Order { get; set; }
+    }
+
+    public class Skill
+    {
+        public string Key { get; set; }
+        public string Title { get; set; }
+        [Translate]
+        public string Description { get; set; }
+        [Translate]
+        public string Experience { get; set; }
+        public string Logo { get; set; }
+        [Relation(With = typeof(SkillCategorie))]
+        public string SkillCategorie { get; set; }
     }
     
     public class Credit
