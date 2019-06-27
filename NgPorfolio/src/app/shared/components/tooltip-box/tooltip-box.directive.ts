@@ -20,6 +20,8 @@ export class TooltipBoxDirective {
   ) { }
 
   @HostListener('mouseenter') onMouseEnter() {
+    this.buildSubject.next();
+
     if (this.componentRef !== null) {
       this.componentRef.destroy();
     }
@@ -32,7 +34,7 @@ export class TooltipBoxDirective {
   @HostListener('mouseleave') onMouseLeave() {
     this.componentRef.instance.beforeDestroy();
 
-    timer(300).pipe(
+    timer(200).pipe(
       take(1),
       takeUntil(this.buildSubject)
     ).subscribe(() => {
