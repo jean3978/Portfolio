@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ViewContainerRef, ComponentFactoryResolver, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, timer } from 'rxjs';
 import { TooltipBoxConfig } from './tooltip-config';
 
 @Component({
@@ -13,6 +13,7 @@ export class TooltipBoxComponent implements OnInit, AfterViewInit {
   @ViewChild('container') container: ElementRef;
 
   containerDiv: HTMLDivElement = null;
+  displayed: boolean = false;
 
   x = 0;
   y = 0;
@@ -26,6 +27,7 @@ export class TooltipBoxComponent implements OnInit, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.containerDiv = this.container.nativeElement;
+    timer(10).subscribe(() => this.displayed = true);
   }
 
   @HostListener('document:mousemove', ['$event'])
@@ -39,6 +41,10 @@ export class TooltipBoxComponent implements OnInit, AfterViewInit {
 
     this.x = ev.x + offsetX;
     this.y = ev.y + offsetY;
+  }
+
+  beforeDestroy(){
+    this.displayed = false;
   }
 
   changeConfig(config: TooltipBoxConfig) {

@@ -1,7 +1,8 @@
-<div class="tooltip-box"
-     [style.top]="y + 'px'"
+<div [style.top]="y + 'px'"
      [style.left]="x + 'px'"
      [style.display]="x === 0 || y === 0 ? 'none' : 'block'"
-     #container>
+     #container
+     class="tooltip-box"
+     [class.displayed]="displayed">
   <ng-container #vc></ng-container>
 </div>
