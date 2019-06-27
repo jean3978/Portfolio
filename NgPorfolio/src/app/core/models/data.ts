@@ -57,6 +57,7 @@ export class Skill {
     experience: string;
     logo: string;
     skillCategorie: string;
+    order: string;
 }
 
 export class SkillCategorie {

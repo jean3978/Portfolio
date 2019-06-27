@@ -64,11 +64,11 @@ namespace PortfolioToolForm.DAL
             };
 
             File.WriteAllText($"{_path}/i18n/en.json",
-                JsonConvert.SerializeObject(En, Formatting.Indented, jsonSettings));
+                JsonConvert.SerializeObject(En, Formatting.None, jsonSettings));
             File.WriteAllText($"{_path}/i18n/fr.json",
-                JsonConvert.SerializeObject(Fr, Formatting.Indented, jsonSettings));
+                JsonConvert.SerializeObject(Fr, Formatting.None, jsonSettings));
             File.WriteAllText($"{_path}/data.json",
-                JsonConvert.SerializeObject(Data, Formatting.Indented, jsonSettings));
+                JsonConvert.SerializeObject(Data, Formatting.None, jsonSettings));
         }
 
         public static List<T> GetDataCollection<T>()

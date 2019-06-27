@@ -39,7 +39,7 @@ export class SkillDashboardComponent implements OnInit {
         const parse: ParsedSkillCategorie = {
           categorieKey: foundCategorie.kName,
           order: foundCategorie.order,
-          skills: group
+          skills: group.sort((s1, s2) => s1.order > s2.order ? 1 : -1)
         };
         return parse;
       }),
