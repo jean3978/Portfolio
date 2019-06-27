@@ -1,0 +1,6 @@
+<div class="skill-tooltip">
+  <div *ngIf="skill">
+    <span class="experience-title">{{ 'skill.description.used-in' | translate | async }}</span>
+    <div *ngFor="let ex of exp">{{ex}}</div>
+  </div>
+</div>

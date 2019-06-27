@@ -10,7 +10,7 @@ export class TranslateService {
   private _translations: { [key: string]: BehaviorSubject<string> } = {};
   private _lang: BehaviorSubject<string> = new BehaviorSubject(null);
 
-  public get lang(): Observable<string> { return this._lang;}
+  public get lang(): Observable<string> { return this._lang; }
 
   constructor(
     private _http: HttpClient
@@ -25,11 +25,15 @@ export class TranslateService {
 
     this._http.get(`/assets/i18n/${lang}.json`).subscribe(data => {
       Object.keys(data).forEach(k => {
+        let item = data[k];
+        if (item === 'MISSING') {
+          item = '';
+        }
         if (!this._translations[k]) {
-          this._translations[k] = new BehaviorSubject(data[k]);
+          this._translations[k] = new BehaviorSubject(item);
         }
         else {
-          this._translations[k].next(data[k]);
+          this._translations[k].next(item);
         }
       });
     });

@@ -47,6 +47,8 @@ import { VideoButtonComponent } from './components/video-button/video-button.com
 import { SliderArrowComponent } from './components/slider-arrow/slider-arrow.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { NgArrayPipesModule, NgStringPipesModule } from 'angular-pipes';
+import { TooltipBoxComponent } from './components/tooltip-box/tooltip-box.component';
+import { TooltipBoxDirective } from './components/tooltip-box/tooltip-box.directive';
 
 library.add(
   faGithub,
@@ -85,6 +87,8 @@ const SHARED_COMPONENTS: any[] = [
   VideoButtonComponent,
   SliderArrowComponent,
   CarouselComponent,
+  TooltipBoxComponent,
+  TooltipBoxDirective
 ]
 
 @NgModule({
@@ -116,6 +120,9 @@ const SHARED_COMPONENTS: any[] = [
     TranslatePipe,
     NgArrayPipesModule,
     NgStringPipesModule,
+  ],
+  entryComponents: [
+    TooltipBoxComponent
   ]
 })
 export class SharedModule { }

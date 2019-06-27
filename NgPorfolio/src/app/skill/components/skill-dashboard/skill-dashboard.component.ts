@@ -3,6 +3,9 @@ import { Skill, Data } from '../../../core/models/data';
 import { from } from 'rxjs';
 import { groupBy, mergeMap, toArray, map, skipWhile, take } from 'rxjs/operators';
 import { DataService } from '../../../core/services/data.service';
+import { TooltipBoxConfig } from '../../../shared/components/tooltip-box/tooltip-config';
+import { TooltipComponent } from '@angular/material';
+import { SkillDescriptionComponent } from 'src/app/skill/components/skill-description/skill-description.component';
 
 @Component({
   selector: 'app-skill-dashboard',
@@ -12,6 +15,7 @@ import { DataService } from '../../../core/services/data.service';
 export class SkillDashboardComponent implements OnInit {
 
   skills: ParsedSkillCategorie[] = [];
+  tooltipConfig: { [id: string]: TooltipBoxConfig } = {};
 
   constructor(
     private _dataService: DataService
@@ -42,6 +46,13 @@ export class SkillDashboardComponent implements OnInit {
       toArray()
     ).subscribe((result: ParsedSkillCategorie[]) => {
       this.skills = result.sort((s1, s2) => s1.order > s2.order ? 1 : -1);
+      this.skills.forEach(c => c.skills.forEach(s => {
+        const key = c.categorieKey + s.key;
+        this.tooltipConfig[key] = {
+          component: SkillDescriptionComponent,
+          properties: [{ name: 'skillKey', value: s.key }]
+        };
+      }));
     });
   }
 }

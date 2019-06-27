@@ -7,7 +7,9 @@
     <div *ngFor="let skill of categorie.skills"
          class="skill-item"
          fxLayout="column"
-         fxLayoutAling="start center">
+         fxLayoutAling="start center"
+         appTooltipBox='opt'
+         [config]="tooltipConfig[categorie.categorieKey + skill.key]">
       <div class="skill-logo-container">
         <img [src]="skill.logo"
              class="skill-logo" />

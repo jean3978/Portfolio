@@ -108,6 +108,7 @@ namespace PortfolioToolForm.DAL
         public string Logo { get; set; }
         [Relation(With = typeof(SkillCategorie))]
         public string SkillCategorie { get; set; }
+        public string Order { get; set; }
     }
     
     public class Credit
